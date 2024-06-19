@@ -1,0 +1,100 @@
+@startuml PlantUML
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class JBlackJack {
+  + BlackJack(): 
+  + playerName: String
+  + avatarFileName: String
+  - playButtonClickSound(String): void
+  + main(String[]): void
+  - resizeImageIcon(ImageIcon, int, int): ImageIcon
+}
+class Card {
+  + Card(String, String): 
+  - value: String
+  - type: String
+  + getImagePath(): String
+  + isAce(): boolean
+  + toString(): String
+  + getValue(): int
+}
+class Deck {
+  + Deck(): 
+  - deck: List<Card>
+  - random: Random
+  + buildDeck(): void
+  + drawCard(): Card
+  + shuffleDeck(): void
+}
+class GameGUI {
+  + GameGUI(): 
+  - frame: JFrame
+  - stayButton: JButton
+  - retryButton: JButton
+  - exitButton: JButton
+  - cardHeight: int
+  - screenSize: Dimension
+  - gameLogic: GameLogic
+  - buttonPanel: JPanel
+  - hitButton: JButton
+  - gamePanel: JPanel
+  - cardWidth: int
+  - drawPlayerCards(Graphics, Player, int, int, boolean): void
+  - setupButtons(): void
+  - onStay(): void
+  - onExit(): void
+  - onRetry(): void
+  - drawGame(Graphics): void
+  - drawDealerCards(Graphics, Player, int, int, boolean): void
+  - onHit(): void
+  - setupGUI(): void
+  - playButtonClickSound(String): void
+  - createButton(String, ActionListener): JButton
+  + main(String[]): void
+}
+class GameLogic {
+  + GameLogic(): 
+  - player1: Player
+  + gamesWon: int
+  - bot1: Player
+  - bot2: Player
+  + gamesLost: int
+  - dealer: Player
+  + gamesPlayed: int
+  - hiddenCard: Card
+  - random: Random
+  - deck: Deck
+  + bot2Turn(): void
+  + bot1Turn(): void
+  + getBot1(): Player
+  + getBot2(): Player
+  + determineWinner(): String
+  + getDealer(): Player
+  + getPlayer1(): Player
+  + getHiddenCard(): Card
+  + playerHit(): void
+  + dealerTurn(): void
+  + startGame(): void
+}
+class Player {
+  + Player(): 
+  - hand: ArrayList<Card>
+  - aceCount: int
+  - sum: int
+  + addToHand(Card): void
+  + reduceAce(): int
+  + getHand(): ArrayList<Card>
+  + getAceCount(): int
+  + getSum(): int
+}
+class Stats {
+  + Stats(): 
+  + showStats(String, String): void
+  - playButtonClickSound(String): void
+}
+
+BlackJack  -[#000082,plain]-^  GameGUI   
+@enduml
