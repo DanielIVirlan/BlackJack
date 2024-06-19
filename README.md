@@ -19,7 +19,7 @@
 
 ## Run the program
 Check that Java  is correctly installed on your computer. If not, download it from [here](https://www.java.com/en/download/).
-Try to double click on the `JBlackJack.jar` file. If it doesn't work, open a terminal and type:
+Try to double click on the `BlackJack.jar` file. If it doesn't work, open a terminal and type:
 
 `java -jar JBlackJack.jar`
 
