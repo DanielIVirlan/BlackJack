@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "GameGUI",
+            "request": "launch",
+            "mainClass": "GameGUI",
+            "projectName": "BlackJack_acee169c"
+        },
+        {
+            "type": "java",
+            "name": "JBlackJack",
+            "request": "launch",
+            "mainClass": "JBlackJack",
+            "projectName": "BlackJack_acee169c"
+        },
+        {
+            "type": "java",
+            "name": "JBlackJack",
+            "request": "launch",
+            "mainClass": "JBlackJack",
+            "projectName": "Progetto_f09dd3e6"
+        },
+        {
+            "type": "java",
+            "name": "GameGUI",
+            "request": "launch",
+            "mainClass": "GameGUI",
+            "projectName": "ciao_c1f64616"
+        },
+        {
+            "type": "java",
+            "name": "BlackJack",
+            "request": "launch",
+            "mainClass": "BlackJack",
+            "projectName": "ciao_c1f64616"
+        },
+        {
+            "type": "java",
+            "name": "Game",
+            "request": "launch",
+            "mainClass": "Game",
+            "projectName": "ciao_c1f64616"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "BlackJack",
+            "request": "launch",
+            "mainClass": "BlackJack",
+            "projectName": "game_c1f7faf4"
+        },
+        {
+            "type": "java",
+            "name": "Game",
+            "request": "launch",
+            "mainClass": "Game",
+            "projectName": "game_c1f7faf4"
+        }
+    ]
+}
