@@ -25,7 +25,8 @@ Run the JBlackJack java file and enjoy
 
 ## Rev detalis
 
-- Rev 0.0.0 : Basic game without any statistics available on stats menu , simple GUI in game without any kind of displayed string showing names of player and value of hand stats or winners-loosers
+- Rev 0.0.0 : Basic game without any statistics available on statistics menu , simple GUI in game without any kind of displayed string showing names of player and value of hand stats or winners-loosers , creation of GUI menu with buttons to start the game , to view 
+              stats or exit the game
 
 - Rev 0.0.1 :
    - Added the option to select your name when a new game is started and also your avatar
