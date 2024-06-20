@@ -5,7 +5,7 @@
 #### - Click on the start game button to start a new game
 #### - Choose your nickname and avatar
 #### - Press the hit button to draw a card, if hit button becomes red score has surpassed 21 as well as stay button and the game goes further
-#### - If the player has done a BlackJack , meaning his sum is 21 , the hit button and stay button will become automatically red and the game   goes further
+#### - If the player has done a BlackJack , meaning his sum is 21 , the hit button and stay button will become automatically red and the game goes further
 #### - Press the stay button in order to stay and let the dealer and bots play 
 #### - Press retry after the games end to start a new one
 
