@@ -40,6 +40,7 @@ public class Player {
         return sum;
     }
 
+
     /**
      * Reduces the sum of card values by 10 for each ace in the hand,
      * if reducing the sum helps to stay below or equal to 21.
@@ -47,13 +48,11 @@ public class Player {
      * @return The reduced sum of card values.
      */
     public int reduceAce() {
-        int currentSum = getSum();
-        int currentAceCount = this.aceCount;
-        while (currentSum > 21 && currentAceCount > 0) {
-            currentSum -= 10;
-            currentAceCount--;
+        while (sum > 21 && aceCount > 0) {
+            sum -= 10;
+            aceCount--;
         }
-        return currentSum;
+        return sum;
     }
 
     /**

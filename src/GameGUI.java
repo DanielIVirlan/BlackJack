@@ -111,6 +111,7 @@ public class GameGUI {
      * Disables player actions, initiates turns for the dealer and bots, and updates the game panel.
      */
     private void onStay() {
+        GameLogic.gamesPlayed++;
         hitButton.setEnabled(false);
         hitButton.setForeground(Color.RED);
         stayButton.setEnabled(false);
@@ -129,7 +130,7 @@ public class GameGUI {
     private void onRetry() {
         frame.dispose();
         new GameGUI();
-        GameLogic.gamesPlayed++;
+        
     }
 
     /**
@@ -166,15 +167,21 @@ public class GameGUI {
 
             // Draw cards for other players
             drawPlayerCards(g, gameLogic.getPlayer1(), 250, 650, false);
-            drawPlayerCards(g, gameLogic.getBot1(), 1350, 650, false);
-            drawPlayerCards(g, gameLogic.getBot2(), 1350, 20, false);
+            drawPlayerCards(g, gameLogic.getBot1(), 1350, 20, false);
+            drawPlayerCards(g, gameLogic.getBot2(), 1350, 650, false);
 
             // Display the winner if the game is over
             if (!stayButton.isEnabled()) {
                 String winner = gameLogic.determineWinner();
                 g.setFont(new Font("Arial", Font.PLAIN, 30));
                 g.setColor(Color.black);
-                g.drawString(winner + " wins", 860, 450);
+                g.drawString(winner , 600, 450);
+                // aggiungo i punteggi delle mani dei giocatori
+                g.drawString(JBlackJack.playerName +":" + gameLogic.getPlayer1().getSum(), 250, 635);
+                g.drawString("Bot1: " + gameLogic.getBot1().getSum(), 1350, 300);
+                g.drawString("Bot2: " + gameLogic.getBot2().getSum(), 1350, 635);
+                g.drawString("Dealer: " + gameLogic.getDealer().getSum(), 250, 300);
+                
             }
         } catch (Exception e) {
             e.printStackTrace();

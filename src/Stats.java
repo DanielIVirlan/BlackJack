@@ -38,6 +38,7 @@ public class Stats {
             mainPanel.setBackground(new Color(35, 101, 51));
 
             JPanel countPanel = new JPanel();
+            countPanel.setLocation(1000, 600);
             countPanel.setOpaque(false);
 
             JLabel avatarLabel = new JLabel();
@@ -56,6 +57,25 @@ public class Stats {
             countLabel.setFont(new Font("Arial", Font.PLAIN, 25));
             countLabel.setForeground(Color.WHITE);
             countPanel.add(countLabel);
+
+            // Calcola il livello e il progresso per la barra di avanzamento
+            int gamesWon = GameLogic.gamesWon;
+            int level = gamesWon / 10; // Calcola il livello in base ai giochi vinti
+            int progress = (gamesWon % 10) * 10; // Calcola la percentuale di completamento per la barra
+
+            JLabel levelLabel = new JLabel("Livello: " + level);
+            levelLabel.setFont(new Font("Arial", Font.BOLD, 20));
+            levelLabel.setForeground(Color.WHITE);
+            countPanel.add(levelLabel);
+
+            JProgressBar progressBar = new JProgressBar();
+            progressBar.setMinimum(0);
+            progressBar.setMaximum(100);
+            progressBar.setValue(progress); // Valore iniziale della barra di avanzamento
+            progressBar.setStringPainted(true); // Mostra il valore della barra di avanzamento
+            progressBar.setForeground(Color.RED); // Colore della barra di avanzamento
+            progressBar.setPreferredSize(new Dimension(200, 30)); // Dimensioni della barra di avanzamento
+            countPanel.add(progressBar);
 
             mainPanel.add(countPanel, BorderLayout.CENTER);
 
@@ -105,9 +125,3 @@ public class Stats {
         }
     }
 }
-
-
-
-
-
-

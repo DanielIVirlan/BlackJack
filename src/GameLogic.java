@@ -12,9 +12,10 @@ public class GameLogic {
     private Player bot1;         // Bot player 1
     private Player bot2;         // Bot player 2
 
-    public static int gamesPlayed = 0;  // Total number of games played
+    public static int gamesPlayed = 0; // Total number of games played
     public static int gamesWon = 0;     // Number of games won
     public static int gamesLost = 0;    // Number of games lost
+    
 
     private Card hiddenCard;     // The hidden card for the dealer
     @SuppressWarnings("unused")
@@ -39,6 +40,7 @@ public class GameLogic {
      */
     public void startGame() {
         
+        
         deck = new Deck();
         dealer = new Player();
         player1 = new Player();
@@ -61,6 +63,11 @@ public class GameLogic {
      */
     public void playerHit() {
         player1.addToHand(deck.drawCard());
+        if (player1.getAceCount() > 0 && player1.getSum() > 21) {
+            player1.reduceAce();
+            
+        }
+        
     }
 
     /**
@@ -68,7 +75,11 @@ public class GameLogic {
      */
     public void dealerTurn() {
         while (dealer.getSum() < 17) {
-            dealer.addToHand(deck.drawCard());
+            dealer.addToHand(deck.drawCard());    
+            if (dealer.getAceCount() > 0 && dealer.getSum() > 21) {
+                dealer.reduceAce();
+                
+            }           
         }
     }
 
@@ -78,6 +89,11 @@ public class GameLogic {
     public void bot1Turn() {
         while (bot1.getSum() < 17) {
             bot1.addToHand(deck.drawCard());
+            if (bot1.getAceCount() > 0 && bot1.getSum() > 21) {
+                bot1.reduceAce();
+                
+            }    
+            
         }
     }
 
@@ -87,6 +103,11 @@ public class GameLogic {
     public void bot2Turn() {
         while (bot2.getSum() < 17) {
             bot2.addToHand(deck.drawCard());
+            if (bot2.getAceCount() > 0 && bot2.getSum() > 21) {
+                bot2.reduceAce();
+                
+            }    
+            
         }
     }
 
@@ -97,29 +118,73 @@ public class GameLogic {
      * @return The name of the winner ("Dealer", "Player", "Bot 1", or "Bot 2").
      */
     public String determineWinner() {
-        String winner = "Dealer";
-
-        if (player1.getSum() <= 21) {
-            winner = JBlackJack.playerName;
+        int playerSum = player1.getSum();
+        int bot1Sum = bot1.getSum();
+        int bot2Sum = bot2.getSum();
+        int dealerSum = dealer.getSum();
+    
+        boolean playerWins = playerSum <= 21 && (playerSum > dealerSum || dealerSum > 21);
+        if (playerWins) {
             gamesWon++;
         } else {
             gamesLost++;
         }
-
-        if (bot1.getSum() <= 21 && bot1.getSum() > player1.getSum()) {
-            winner = "Bot 1";
+        boolean bot1Wins = bot1Sum <= 21 && (bot1Sum > dealerSum || dealerSum > 21);
+        boolean bot2Wins = bot2Sum <= 21 && (bot2Sum > dealerSum || dealerSum > 21);
+        
+        boolean tiePlayer = playerSum == dealerSum && playerSum <= 21;
+        boolean tieBot1 = bot1Sum == dealerSum && bot1Sum <= 21;
+        boolean tieBot2 = bot2Sum == dealerSum && bot2Sum <= 21;
+    
+        StringBuilder result = new StringBuilder();
+    
+        // Check ties and wins for all players and bots
+        if (tiePlayer) {
+            result.append(JBlackJack.playerName).append(" has tied with the dealer. ");
+        } else if (playerWins) {
+            result.append(JBlackJack.playerName).append(" wins. ");
+            
+        } else {
+            result.append(JBlackJack.playerName).append(" loses. ");
         }
-
-        if (bot2.getSum() <= 21 && bot2.getSum() > Math.max(player1.getSum(), bot1.getSum())) {
-            winner = "Bot 2";
+    
+        if (tieBot1) {
+            result.append("Bot 1 has tied with the dealer. ");
+        } else if (bot1Wins) {
+            result.append("Bot 1 wins. ");
+        } else {
+            result.append("Bot 1 loses. ");
         }
-
-        if (dealer.getSum() <= 21 && dealer.getSum() > Math.max(player1.getSum(), Math.max(bot1.getSum(), bot2.getSum()))) {
-            winner = "Dealer";
+    
+        if (tieBot2) {
+            result.append("Bot 2 has tied with the dealer. ");
+        } else if (bot2Wins) {
+            result.append("Bot 2 wins. ");
+        } else {
+            result.append("Bot 2 loses. ");
         }
+    
+        // Determine if the dealer wins
+        boolean dealerWins = !tiePlayer && !tieBot1 && !tieBot2 && 
+                             !playerWins && !bot1Wins && !bot2Wins;
+    
+        if (dealerWins) {
+            result.append("Dealer wins.");
+            
 
-        return winner;
+        } else {
+            if (!tiePlayer && !playerWins && !tieBot1 && !bot1Wins && !tieBot2 && !bot2Wins) {
+                result.append("Dealer has tied with all players.");
+            } else {
+                result.append("Dealer loses.");
+            }
+        }
+    
+        return result.toString();
     }
+    
+    
+    
     /**
  * Gets the dealer of the blackjack game.
  * @return The dealer player
