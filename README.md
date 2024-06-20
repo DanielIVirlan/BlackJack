@@ -15,6 +15,8 @@
 - Number of games played
 - Number of games won
 - Number of games lost
+- A progress bar that shows your level and progress
+- Display total hand score of each player after turn ends 
 
 
 ## Run the program
