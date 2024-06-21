@@ -47,6 +47,6 @@ Run the JBlackJack java file and enjoy
    - Added a button to turn ON-OFF the menu music
    - Added an effect sound when entering in the game that simulates dealer giving cards to players
    - Added a sound every time players request cards
-   - 
+  
 
 
