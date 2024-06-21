@@ -10,6 +10,7 @@
 #### - Press retry after the games end to start a new one
 
 
+
 ## Features
 
 - Display total hand score of each player after turn ends
@@ -25,6 +26,7 @@
 Check that you have Java installed on your computer. If not, download it from [here](https://www.oracle.com/it/java/technologies/downloads/). Try to double click on the JBlackJack.jar file. If it doesn't work, open a terminal and type:
 
 java -jar JBlackJack.jar
+
 
 
 ## Rev detalis
