@@ -42,4 +42,11 @@ Run the JBlackJack java file and enjoy
    - implemented of the tie case
    - Added a game bar status into statistics menu that shows your level progress by winning games
 
+- Rev 0.0.3 :
+   - Added a background music in the main menu
+   - Added a button to turn ON-OFF the menu music
+   - Added an effect sound when entering in the game that simulates dealer giving cards to players
+   - Added a sound every time players request cards
+   - 
+
 
