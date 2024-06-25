@@ -22,13 +22,6 @@
  
 
 
-## Run the program
-Check that you have Java installed on your computer. If not, download it from [here](https://www.oracle.com/it/java/technologies/downloads/). Try to double click on the JBlackJack.jar file. If it doesn't work, open a terminal and type:
-
-java -jar JBlackJack.jar
-
-
-
 ## Beta Rev detalis
 
 - Rev 0.0.0 : Basic game without any statistics available on statistics menu , simple GUI in game without any kind of displayed string showing names of player and value of hand stats or winners-loosers , creation of GUI menu with buttons to start the game , to view 
