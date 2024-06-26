@@ -86,6 +86,8 @@ public class GameLogic extends Observable {
         if (player1.getAceCount() > 0 && player1.getSum() > 21) {
             player1.reduceAce();
         }
+        setChanged();
+        notifyObservers();
         System.out.println("Player hit: " + player1.getHand());
     }
 
@@ -119,6 +121,8 @@ public class GameLogic extends Observable {
                 bot1.reduceAce();
             }
         }
+        setChanged();
+        notifyObservers();
         System.out.println("Bot1 turn complete: " + bot1.getHand());
     }
 
@@ -134,6 +138,9 @@ public class GameLogic extends Observable {
                 bot2.reduceAce();
             }
         }
+        setChanged();
+        notifyObservers();
+
         System.out.println("Bot2 turn complete: " + bot2.getHand());
     }
 
@@ -361,12 +368,12 @@ public class GameLogic extends Observable {
             dealerTurn();
             bot1Turn();
             bot2Turn();
-            setChanged();
-            notifyObservers();
+            
+        
             System.out.println("Stay action performed");
         }
-        setChanged();
-        notifyObservers();
+        
+        
         System.out.println("Hit action performed");
     }
 
@@ -377,8 +384,8 @@ public class GameLogic extends Observable {
         dealerTurn();
         bot1Turn();
         bot2Turn();
-        setChanged();
-        notifyObservers();
+        
+        
         System.out.println("Stay action performed");
     }
 
@@ -388,8 +395,8 @@ public class GameLogic extends Observable {
     public void retryAction() {
         new GameGUI();
         startGame(); // this method starts initialize the game
-        setChanged();
-        notifyObservers();
+        
+        
         System.out.println("Retry action performed");
     }
 
