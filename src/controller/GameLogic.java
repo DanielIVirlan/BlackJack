@@ -101,6 +101,9 @@ public class GameLogic extends Observable {
                 dealer.reduceAce();
             }
         }
+        setChanged();
+        notifyObservers();
+
         System.out.println("Dealer turn complete: " + dealer.getHand());
     }
 
