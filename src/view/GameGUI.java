@@ -120,7 +120,7 @@ public class GameGUI extends JFrame implements Observer {
                     stayButton.setEnabled(false);
                     stayButton.setForeground(Color.RED);
                 }
-                repaint();
+                
             }
         });
 
@@ -135,7 +135,7 @@ public class GameGUI extends JFrame implements Observer {
                 stayButton.setForeground(Color.RED);
 
                 controller.stayAction();
-                repaint();
+            
             }
         });
 
@@ -146,8 +146,8 @@ public class GameGUI extends JFrame implements Observer {
                 playCardSound("src/resources/flip.wav");
                 dispose();
                 // Handle retry action
-                controller.retryAction(); // Example method in Controller2
-                repaint(); // Repaint the game panel after action
+                controller.retryAction(); // 
+            
             }
         });
     }
